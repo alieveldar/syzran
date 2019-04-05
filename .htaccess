@@ -1,0 +1,23 @@
+Options All -Indexes
+DirectoryIndex index.php
+ErrorDocument 404 /
+ErrorDocument 403 /
+ErrorDocument 401 /
+AddDefaultCharset utf-8
+php_value default_charset utf-8
+
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www\.prosyzran\.ru$ [NC]
+RewriteRule ^(.*)$ http://prosyzran.ru/$1 [R=301,L]
+
+
+php_flag register_globals on
+php_flag magic_quotes_gpc off
+php_flag magic_quotes_runtime off
+
+php_value session.cookie_domain ".prosyzran.ru"
+php_value post_max_size 200M
+php_value session.gc_maxlifetime 172800
+php_value session.cookie_lifetime 172800
+php_value session.gc_probability 1
